@@ -58,7 +58,7 @@ function SnapNavbar() {
                 aria-describedby="basic-addon2"
                 type="text"
               />
-              <Button variant="dark">Search Buses</Button>
+              <Button variant="dark">Search</Button>
             </InputGroup>
           </Form.Group>
 
