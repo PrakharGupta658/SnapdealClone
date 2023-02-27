@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -13,12 +13,24 @@ import { useCart } from "react-use-cart";
 import { NavLink } from "react-router-dom";
 
 export default function PaymentPage() {
+  const [cartAmount , setCartAmount] = useState();
 
   const {
     items,
     cartTotal,
     
   } = useCart();
+
+
+  useEffect(()=>{
+    setCartAmount(cartTotal + cartTotal*.05);
+    console.log("amount" , cartAmount);
+    
+  })
+  
+  
+
+  // const [gst , setGst] = useState();
   console.log("items issss", items);
   return (
     <MDBContainer className="py-5">
@@ -129,15 +141,15 @@ export default function PaymentPage() {
 
             <hr />
             <div className="d-flex justify-content-between mt-2">
-              <span>Taxes</span> <span>null</span>
+              <span>GST</span> <span>{(cartTotal*.05).toFixed(2)}</span>
             </div>
             <div className="d-flex justify-content-between mt-2">
-              <span>Shipping Charge</span> <span>₹ 0</span>
+              <span>Shipping Charge</span> <span>₹0</span>
             </div>
 
             <hr />
             <div className="d-flex justify-content-between mt-2">
-              <span>Total </span> <span class="text-success">{cartTotal}</span>
+              <span>Total </span> <span class="text-success">{(cartAmount).toFixed(2)}</span>
             </div>
           </div>
         </MDBCol>
