@@ -141,7 +141,7 @@ export default function PaymentPage() {
 
             <hr />
             <div className="d-flex justify-content-between mt-2">
-              <span>GST</span> <span>{(cartTotal*.05).toFixed(2)}</span>
+              <span>GST</span> <span>{cartTotal*.05}</span>
             </div>
             <div className="d-flex justify-content-between mt-2">
               <span>Shipping Charge</span> <span>₹0</span>
@@ -149,7 +149,7 @@ export default function PaymentPage() {
 
             <hr />
             <div className="d-flex justify-content-between mt-2">
-              <span>Total </span> <span class="text-success">{(cartAmount).toFixed(2)}</span>
+              <span>Total </span> <span class="text-success">{cartAmount}</span>
             </div>
           </div>
         </MDBCol>
