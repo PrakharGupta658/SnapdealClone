@@ -30,6 +30,9 @@ function DropdownSort({PriceHandeler}) {
       <option as="button" value="priceInc">
         Price low to high
       </option>
+      <option as="button" value="priceRating">
+        Short by rating
+      </option>
     </select>
   );
 }
