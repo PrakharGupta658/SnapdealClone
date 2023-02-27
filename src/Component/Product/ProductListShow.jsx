@@ -29,10 +29,13 @@ function ProductListShow() {
 
   useEffect(() => {
     let sorted = [...product];
+    console.log("price is" , price);
     if (price === "priceInc") {
       sorted = sorted.sort((a, b) => a.price - b.price);
     } else if (price === "priceDec") {
       sorted = sorted.sort((a, b) => b.price - a.price);
+    }else if(price === "priceRating"){
+      sorted = sorted.sort((a, b) => b.rating.rate - a.rating.rate);
     }
     setSortedProduct(sorted);
   }, [product, price]);
