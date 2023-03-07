@@ -69,10 +69,10 @@ function SnapNavbar({SerchVal}) {
             <InputGroup className="mb-3">
               <Form.Control
                 placeholder="Search Products & Brands"
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
+                 autoComplete="off"
                 type="text"
                 onChange={HandelSerchValue}
+
                 ref={serchvalue}
               />
               <Button variant="dark">Search</Button>
