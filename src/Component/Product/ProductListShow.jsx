@@ -5,27 +5,19 @@ import ProductContext from "../Context";
 import LeftBar from "../LeftBar";
 import ProductList from "./ProductList";
 import DropdownSort from "./DropDown";
-import { useNavigate } from "react-router-dom";
 
-function ProductListShow() {
-  // const [filterState, setFilterState] = useState("");
+function ProductListShow(props) {
   const [price, setPrice] = useState();
   const [sortedProduct, setSortedProduct] = useState([]);
 
-  // const navigate = useNavigate();
-
-  // const HandelFilter = (e) => {
-  //   setFilterState(e);
-  //   navigate("/productlist");
-  // };
-  //  console.log("handelfileter value " , filterState);
 
   const product = useContext(ProductContext);
   const GetPrice = (e) => {
     setPrice(e);
-    console.log("price is", price);
+    // console.log("price is", price);
   };
   
+  // console.log("serch valye is",props.filterSerchValue); 
 
   useEffect(() => {
     let sorted = [...product];
@@ -37,8 +29,12 @@ function ProductListShow() {
     }else if(price === "priceRating"){
       sorted = sorted.sort((a, b) => b.rating.rate - a.rating.rate);
     }
+
+    if (props.filterSerchValue) {
+      sorted = sorted.filter((p) => p.title.toLowerCase().includes(props.filterSerchValue));
+    }
     setSortedProduct(sorted);
-  }, [product, price]);
+  }, [product, price , props.filterSerchValue]);
 
  
   return (
