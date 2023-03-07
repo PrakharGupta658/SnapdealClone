@@ -21,6 +21,7 @@ import Jewelery from "./Component/FilterProduct/Jewelery";
 function App() {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [serchFilter, setSerchFilter] = useState();
 
   useEffect(() => {
     async function fetchBuses() {
@@ -36,16 +37,21 @@ function App() {
     return <SpinnerLoding />;
   }
 
+  const GetSerchValue =(e)=>{
+    setSerchFilter(e);
+    
+  }
+
   return (
     <>
       <ProductContext.Provider value={product}>
         <BrowserRouter>
           <CartProvider>
-            <SnapNavbar />
+            <SnapNavbar  SerchVal = {GetSerchValue} />
 
             <Routes>
               <Route exact path="/" element={<HomePage />} />
-              <Route exact path="/productlist" element={<ProductListShow />} />
+              <Route exact path="/productlist" element={<ProductListShow  filterSerchValue = {serchFilter} />} />
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/payment" element={<PaymentPage />} />
               <Route exact path="/loginpage" element={<LoginPage />} />
