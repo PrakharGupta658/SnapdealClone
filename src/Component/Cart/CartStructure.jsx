@@ -15,6 +15,13 @@ function CardStructure() {
     emptyCart,
   } = useCart();
 
+   useEffect(() => {
+    auth.onAuthStateChanged((usrName) => {
+      if (!usrName) {
+        navigate("/loginpage");
+      }
+    });
+  }, []);
   if (isEmpty) return <h2 className="text-center mt-5">Your Cart is Empty</h2>;
   return (
     <>
