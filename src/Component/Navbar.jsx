@@ -15,14 +15,13 @@ import { BiUserCircle } from "react-icons/bi";
 import { ButtonGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, onAuthStateChanged } from "./LoginSignup/FireBase";
-import { useCart } from "react-use-cart";
+
 
 
 function SnapNavbar({SerchVal}) {
   const [login, setLogin] = useState("Login");
   const [login1, setLogin1] = useState("login");
   const [userName, setUserName] = useState("");
-  const { totalUniqueItems } = useCart();
   const serchvalue = useRef();
   const navigate = useNavigate();
   
@@ -90,7 +89,7 @@ function SnapNavbar({SerchVal}) {
               style={{ fontSize: "20px", marginLeft: "5px" }}
             >
             </i>
-            <span style={{border:"1px solid white" , borderRadius:"50%" , fontSize:"20px",marginLeft:"5px", }}>{totalUniqueItems}</span>
+//             <span style={{border:"1px solid white" , borderRadius:"50%" , fontSize:"20px",marginLeft:"5px", }}>{totalUniqueItems}</span>
             
           </Link>
 
